@@ -3,7 +3,7 @@ from googleapiclient.discovery import build
 from time import sleep
 import websocket, json
 import threading
-import pdb
+from IPython import embed
 import time
 
 class LivePriceUpdater:
@@ -19,7 +19,7 @@ class LivePriceUpdater:
             config = json.load(config_file)
             self.SPREADSHEET_ID = config['SPREADSHEET_ID']
 
-        symbols = { "product_ids": ["ETH-BTC"] }
+        self.symbols = { "product_ids": ["ETH-USD"] }
 
         self.subscribe_message = {
             'type': 'subscribe',
@@ -28,7 +28,7 @@ class LivePriceUpdater:
                 "heartbeat",
                 {
                     "name": "ticker",
-                    "product_ids": symbols
+                    "product_ids": self.symbols['product_ids']
                 }
             ]
         }
