@@ -62,13 +62,28 @@ Database Setup:
 - Start your PostgreSQL server, usually with pg_ctl -D /usr/local/var/postgres start or using the PostgreSQL service in the macOS System Preferences.
 ```
 psql postgres
-CREATE DATABASE crypto_db;
+CREATE DATABASE crypto_prices_db;
 \q
 ```
 
 - Set up the schema as shown in the provided schema screenshot.
 
-#### 5. Google Sheets API setup:
+In the code, in the fetch_and_insert_data.py and fetch_initial_historical_datapoint.py -- you will have to change the self.db_params to your database setup. the code that must be changed is the user. 
+
+![screen_shot_db_params](https://private-user-images.githubusercontent.com/76177498/336149621-746d960b-a884-46a2-a8ad-44652a14c859.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc0MzE4NDAsIm5iZiI6MTcxNzQzMTU0MCwicGF0aCI6Ii83NjE3NzQ5OC8zMzYxNDk2MjEtNzQ2ZDk2MGItYTg4NC00NmEyLWE4YWQtNDQ2NTJhMTRjODU5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjAzVDE2MTkwMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI1ZDNlOGEwN2M2MWIyMzY0YmZmNGI1OWM0ZDEyOTZjNWRhY2NjYTYwNThhZTlhZTA0MWY0ZTZjMWIwYmYzODQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.hPeLhIf7Rj0wkA0UwuK1QpIBL6ZKsmOkkM1BiMQi294)
+
+#### 5. Config directory setup:
+
+In order to have files hidden from github and for the code to work properly, you must set up a config directory and then have properly named files in that directory. Set up the following files in the config directory:
+- config.json
+- google_auth.json
+- db_params_password.json
+-- Save this in the db_params_password.json
+  ```
+  { "password": "whatever your password is" }
+  ```
+
+#### 6. Google Sheets API setup:
 
 - Go to the Google Developers Console
 - Create a new project, and enable the Google Sheets API for that project
@@ -101,5 +116,16 @@ CREATE DATABASE crypto_db;
 **MAKE SURE to add the config files to your .gitignore (THIS IS IMPORTANTE)**  
 
 If you do not already have a .gitignore file, create a file in called .gitignore and add google_auth.json and config.json to it.
+
+**This should complete basic setup**
+
+**The google sheet is very senstive to naming conventions, make sure of the following**
+
+-  This utilizes the coinbase API, all coin tickers should be in the column A in the google sheet.
+-  The sheet name in the bottom left should be Prices. 
+-  The coin symbols in the google sheet should be in the format ETH-USD, the live price should populate in the B column.
+
+
+# Happy Hunting!!
 
      
