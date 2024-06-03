@@ -23,7 +23,7 @@ Features:
 ![schema_screenshot](https://private-user-images.githubusercontent.com/76177498/336121500-ee55b9fe-f0f2-49d5-a6ce-5a3e7f71b1bb.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc0MjY4MDgsIm5iZiI6MTcxNzQyNjUwOCwicGF0aCI6Ii83NjE3NzQ5OC8zMzYxMjE1MDAtZWU1NWI5ZmUtZjBmMi00OWQ1LWE2Y2UtNWEzZTdmNzFiMWJiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjAzVDE0NTUwOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTE4ZjYxYzI5NzM2ODcxNzg5MGNjZWY2MmM3Mjk4MTVkN2E4OTU2MTNiYTFhNWY3ZDkzYWQ0NWRkMDc5MzM0MjQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.UUo5k3MEngQR-FwDd3BdvD11Z5n7af0niih1dumFIWY)
 
 ### Setup
-1. Clone this repository:
+#### 1. Clone this repository:
 On your local machine open a terminal session and enter the following commands for SSH or HTTPS to clone the repositiory.
 
 - using ssh key <br>
@@ -43,20 +43,20 @@ In terminal, use `$cd` to navigate to the Crypto-PulseBot Application project di
 $ cd Crypto-PulseBot
 ```
 
-2. Set up Python Environment (Optional but Recommended):
+#### 2. Set up Python Environment (Optional but Recommended):
 To set up and activate a virtual environment
 ```
 python3 -m venv env
 source env/bin/activate
 ```
 
-3. Install Dependencies:
+#### 3. Install Dependencies:
 Install all required Python libraries using pip:
 ```
 pip install -r requirements.txt
 ```
 
-4. Configuring PostgreSQL:
+#### 4. Configuring PostgreSQL:
 Database Setup:
 
 - Start your PostgreSQL server, usually with pg_ctl -D /usr/local/var/postgres start or using the PostgreSQL service in the macOS System Preferences.
@@ -68,5 +68,15 @@ CREATE DATABASE crypto_db;
 
 - Set up the schema as shown in the provided schema screenshot.
 
-5. Google Sheets API setup:
+#### 5. Google Sheets API setup:
+
+- Go to the Google Developers Console
+- Create a new project, and enable the Google Sheets API for that project
+- Create credentials (API key or OAuth 2.0 Client ID) to authenticate your requests. (This can be a tricky step)
+- Download the JSON File contain your credentials and save it as a config file, as google_auth.json.
+
+It should look something like this: 
+
+     
+- MAKE SURE to add the config file to your .gitignore (THIS IS IMPORTANTE) 
      
