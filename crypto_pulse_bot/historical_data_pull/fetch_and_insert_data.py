@@ -17,14 +17,7 @@ class HistoricalCryptoDataUpdater:
                 'port': 5432
             }
         self.granularity = 3600
-        self.coin_symbols = [ 
-            "BTC", "1INCH", "AAVE", "ADA", "ALGO", "ANKR", "ATOM", "AVAX", "AXS", "BAL", "BAND",
-            "BAT", "BCH", "BNT", "BTRST", "CRV", "CTSI", "DASH", "DOGE", "DOT", "ENJ",
-            "EOS", "ETC", "ETH", "FIL", "FORTH", "GRT", "ICP", "KNC", "LINK", "LRC",
-            "LTC", "MANA", "MATIC", "MKR", "NKN", "NMR", "OGN", "ORN", "RAD",
-            "REQ", "RLC", "SKL", "SNX", "SOL", "STORJ", "SUSHI", "TRB", "TRU", "UMA",
-            "UNI", "WBTC", "WCFG", "XLM", "XTZ", "YFI", "ZEC", "ZEN"
-        ]
+        self.coin_symbols = [ "BTC", "ETH"]
     
     def connect_to_database(self):
         return psycopg2.connect(**self.db_params)

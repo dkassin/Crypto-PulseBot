@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 from datetime import datetime, timedelta
 import pytz
 import requests
-from crypto_bot.historical_data_pull.fetch_initial_historical_datapoint import (
+from crypto_pulse_bot.historical_data_pull.fetch_initial_historical_datapoint import (
     fetch_data_from_api,
     insert_data_into_database,
     main

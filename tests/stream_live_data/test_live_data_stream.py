@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import MagicMock
 import json
-from crypto_bot.stream_live_data.live_data_stream import LivePriceUpdater
+from crypto_pulse_bot.stream_live_data.live_data_stream import LivePriceUpdater
 
 def test_get_existing_tickers():
     live_price_updater = LivePriceUpdater()

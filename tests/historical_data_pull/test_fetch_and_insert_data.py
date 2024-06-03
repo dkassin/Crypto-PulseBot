@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 from datetime import datetime, timedelta
 import pytz
 import requests
-from crypto_bot.historical_data_pull.fetch_and_insert_data import HistoricalCryptoDataUpdater
+from crypto_pulse_bot.historical_data_pull.fetch_and_insert_data import HistoricalCryptoDataUpdater
 
 def test_get_current_tie_with_dst():
     test_timezone = 'America/Denver'

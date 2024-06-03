@@ -18,10 +18,7 @@ class LivePriceUpdater:
             config = json.load(config_file)
             self.SPREADSHEET_ID = config['SPREADSHEET_ID']
 
-        symbols_path = 'config/symbols.json'
-        with open(symbols_path, 'r') as file:
-            data = json.load(file)
-            self.product_ids = data['product_ids']
+        symbols = { "product_ids": ["ETH-BTC"] }
 
         self.subscribe_message = {
             'type': 'subscribe',
@@ -30,7 +27,7 @@ class LivePriceUpdater:
                 "heartbeat",
                 {
                     "name": "ticker",
-                    "product_ids": self.product_ids
+                    "product_ids": symbols
                 }
             ]
         }

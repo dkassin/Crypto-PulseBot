@@ -33,8 +33,8 @@ def main():
         'port': 5432
     }
 
-    coin_symbols = ["BTC", "1INCH", "AAVE", "ADA", "ALGO", "ANKR", "ATOM", "AVAX", "AXS", "BAL", "BAND", "BAT", "BCH", "BNT", "BTRST", "CRV", "CTSI", "DASH", "DOGE", "DOT", "ENJ", "EOS", "ETC", "ETH", "FIL", "FORTH", "GRT", "ICP", "KNC", "LINK", "LRC", "LTC", "MANA", "MATIC", "MKR", "NKN", "NMR", "OGN", "ORN", "RAD", "REQ", "RLC", "SKL", "SNX", "SOL", "STORJ", "SUSHI", "TRB", "TRU", "UMA", "UNI", "WBTC", "WCFG", "XLM", "XTZ", "YFI", "ZEC", "ZEN"]
-
+    coin_symbols = [ "BTC", "ETH"]
+    
     date = (datetime.now() - timedelta(days=500)).date()
 
     try:
