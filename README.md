@@ -73,10 +73,22 @@ CREATE DATABASE crypto_db;
 - Go to the Google Developers Console
 - Create a new project, and enable the Google Sheets API for that project
 - Create credentials (API key or OAuth 2.0 Client ID) to authenticate your requests. (This can be a tricky step)
-- Download the JSON File contain your credentials and save it in the config directory, as google_auth.json. (If you do not have a config directory, created a directory called config, then put the google_auth.json file in there. 
+- Download the JSON File contain your credentials and save it in the config directory, as google_auth.json. (If you do not have a config directory, created a directory called config, then put the google_auth.json file in there)
+-  Also create another file in the config directory called config.json
+- In the google sheet you must also make the address in your client email, an editor in the google sheet. (You can find the sheet in the credentials under client email)
+<br />
+**Where to get SPREADSHEET_ID value**
 
-It should look something like this: 
-![google_auth_screenshot]([)](https://private-user-images.githubusercontent.com/76177498/336137726-042acabf-5dc0-43bd-a916-56524d103852.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc0Mjk0ODIsIm5iZiI6MTcxNzQyOTE4MiwicGF0aCI6Ii83NjE3NzQ5OC8zMzYxMzc3MjYtMDQyYWNhYmYtNWRjMC00M2JkLWE5MTYtNTY1MjRkMTAzODUyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjAzVDE1Mzk0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThlYTNhYTA1YzkwNmYzYzZhN2NkMjI1NWE5OTk0NjA5ZDUyNzE4YzM2YTBhN2M1MDc5Mzg3OTUyNjFiMDlmYWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.XyNOwiLzDrfGWSQCtSVnt64CX0SSzXlTVU0CT2cxICI)
-- MAKE SURE to add the config file to your .gitignore (THIS IS IMPORTANTE)
-If you do not already have a .gitignore file, create a file in called .gitignore and add google_auth.json to it.
+  
+<br />
+**Sample config.json**
+
+<br />
+**Sample google_auth.json**
+![screenshot](https://private-user-images.githubusercontent.com/76177498/336137726-042acabf-5dc0-43bd-a916-56524d103852.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTc0Mjk0ODIsIm5iZiI6MTcxNzQyOTE4MiwicGF0aCI6Ii83NjE3NzQ5OC8zMzYxMzc3MjYtMDQyYWNhYmYtNWRjMC00M2JkLWE5MTYtNTY1MjRkMTAzODUyLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA2MDMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNjAzVDE1Mzk0MlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThlYTNhYTA1YzkwNmYzYzZhN2NkMjI1NWE5OTk0NjA5ZDUyNzE4YzM2YTBhN2M1MDc5Mzg3OTUyNjFiMDlmYWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.XyNOwiLzDrfGWSQCtSVnt64CX0SSzXlTVU0CT2cxICI)
+
+**MAKE SURE to add the config files to your .gitignore (THIS IS IMPORTANTE)**  
+
+If you do not already have a .gitignore file, create a file in called .gitignore and add google_auth.json and config.json to it.
+
      
