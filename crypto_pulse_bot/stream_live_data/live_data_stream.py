@@ -4,6 +4,7 @@ from time import sleep
 import websocket, json
 import threading
 import pdb
+import time
 
 class LivePriceUpdater:
     def __init__(self):
@@ -35,6 +36,8 @@ class LivePriceUpdater:
         self.tickers_cache = {}
         self.latest_prices = {}
         self.get_existing_tickers()
+        self.retry_delay = 5
+        self.stop_thread = threading.Event()
 
     def start_update_thread(self):
         self.thread = threading.Thread(target=self.update_google_sheet)
@@ -62,6 +65,20 @@ class LivePriceUpdater:
             product_id = current_data.get('product_id')
             price = current_data.get('price')
             self.latest_prices[product_id] = price
+
+    def on_error(self, ws, error):
+        print(f"Websocket ecountered an error: {error}")
+        self.reconnect()
+
+    def on_close(self, ws, close_status_code, close_msg):
+        print(f"WebSocket closed with status code {close_status_code}: {close_msg}")
+        self.reconnect()
+
+    def reconnect(self):
+        print(f"Reconnecting in {self.retry_delay} seconds...")
+        time.sleep(self.retry_delay)
+        self.start_update_thread()
+        self.create_and_run_websocket()
 
     def update_google_sheet(self):
         while True:
@@ -93,11 +110,19 @@ class LivePriceUpdater:
 
             self.latest_prices = {}
 
+    def create_and_run_websocket(self):
+        ws = websocket.WebSocketApp(
+            'wss://ws-feed.pro.coinbase.com',
+            on_open=self.on_open,
+            on_message=self.on_message,
+            on_error=self.on_error,
+            on_close=self.on_close
+            )
+        ws.run_forever()
+
     def run(self):
         self.start_update_thread()
-        socket = 'wss://ws-feed.pro.coinbase.com'
-        ws = websocket.WebSocketApp(socket,on_open=self.on_open, on_message=self.on_message)
-        ws.run_forever()
+        self.create_and_run_websocket()
 
 if __name__ == "__main__":
     live_price_updater = LivePriceUpdater()
