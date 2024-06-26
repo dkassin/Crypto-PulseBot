@@ -8,6 +8,7 @@ Features:
 - Live Price Streaming: Just like a Bloomberg terminal, Crypto-PulseBot offers real-time streaming of cryptocurrency prices using websockets, allowing users to monitor the market as it changes.
 - Integration with Google Sheets: Stream live data directly into Google Sheets, enabling easy access and manipulation of data for trading strategies and decision-making.
 - Historical Data Mining: Utilizes a PostgreSQL database to store and mine historical trading data, essential for backtesting trading strategies and performing comprehensive market analyses.
+- Concurrency, with the ability to set up live prices with multiple exchanges at once. (You may need to change update frequency to 4-5 seconds to not run into rate limits)   
 
 ## Requirements and Setup (for Mac):
 
